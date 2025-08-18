@@ -1,6 +1,8 @@
 # bot.py
 # pip install -r requirements.txt
 import os
+import asyncio
+from aiohttp import web
 from collections import defaultdict
 from dataclasses import dataclass
 from dotenv import load_dotenv
@@ -181,9 +183,26 @@ async def cart_checkout(c: CallbackQuery):
 async def any_text(m: Message):
     await send_unique(m.from_user.id, text="Жми кнопки, чтобы выбрать блюдо 👇", reply_markup=menu_kb())
 
+# --- крошечный HTTP-сервер для Render (health check) ---
+async def _health(_):
+    return web.Response(text="ok")
+
+async def run_health_server():
+    app = web.Application()
+    app.router.add_get("/healthz", _health)
+    port = int(os.getenv("PORT", "10000"))  # Render передаст PORT
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+
+
 if __name__ == "__main__":
-    import asyncio
     async def main():
         assert BOT_TOKEN, "BOT_TOKEN не задан"
-        await dp.start_polling(bot)
+        await asyncio.gather(
+            dp.start_polling(bot),   # телеграм-бот
+            run_health_server(),     # HTTP /healthz
+        )
     asyncio.run(main())
+
