@@ -55,9 +55,7 @@ CATALOG: list[Item] = [
          "https://www.google.com/imgres?q=%D1%80%D0%B8%D1%81&imgurl=https%3A%2F%2Fs1.eda.ru%2FStaticContent%2FPhotos%2FUpscaled%2F120214140918%2F130320124922%2Fp_O.jpg&imgrefurl=https%3A%2F%2Feda.ru%2Frecepty%2Fzakuski%2Fris-na-paru-26944&docid=cWWaVvXbO0wkpM&tbnid=fsT4H1ECgfxXJM&vet=12ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA..i&w=1200&h=1200&hcb=2&ved=2ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA"),
     Item("macarons", "макароны", (3, 1, 2), "10 минут",
          "https://www.google.com/imgres?q=vfrfhjys%20&imgurl=https%3A%2F%2Fkachestvorb.ru%2Fupload%2Fiblock%2F770%2Fb67ynl991s6afy8wsq7hv7ug0an3xns2.webp&imgrefurl=https%3A%2F%2Fkachestvorb.ru%2Fnews%2Fpolezny_li_makarony%2F&docid=kaR6_sx-W599uM&tbnid=71FW0bzcMqo29M&vet=12ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA..i&w=480&h=267&hcb=2&ved=2ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA"),
-    Item("big bon", "big bon", (1, 0, 1), "5 минут",
-         "https://www.google.com/imgres?q=vfrfhjys%20&imgurl=https%3A%2F%2Fkachestvorb.ru%2Fupload%2Fiblock%2F770%2Fb67ynl991s6afy8wsq7hv7ug0an3xns2.webp&imgrefurl=https%3A%2F%2Fkachestvorb.ru%2Fnews%2Fpolezny_li_makarony%2F&docid=kaR6_sx-W599uM&tbnid=71FW0bzcMqo29M&vet=12ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA..i&w=480&h=267&hcb=2&ved=2ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA"),
-
+    Item("big bon", "big bon", (1, 0, 1), "5 минут","https://www.google.com/imgres?q=%D0%B1%D0%B8%D0%B3%20%D0%B1%D0%BE%D0%BD&imgurl=https%3A%2F%2Fdobrodusha.ru%2Fimage%2Fcache%2Fcatalog%2Flapsha%2FLapsha-bystrogo-prigotovleniya-Big-Bon-75-g-kurica-salsa-800x800.jpg&imgrefurl=https%3A%2F%2Fdobrodusha.ru%2Fprodukty-pitaniya%2Fprodukty-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya-big-bon-75-g-kurica-salsa%3Fsrsltid%3DAfmBOorvJlgttx-5oMWXJJcKJkLWFF5ujSiD0CulCyqbSExLyVm_CYJr&docid=LZIH-gEuUBx6WM&tbnid=cauN7GtzjCgaHM&vet=12ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA")
 ]
 
 ITEM_BY_ID = {i.id: i for i in CATALOG}
@@ -389,10 +387,14 @@ async def quiz_answer(c: CallbackQuery):
         if user_id in user_quiz_state:
             del user_quiz_state[user_id]
 
-        # сообщение пользователю
         await send_unique(
             user_id,
-            text="Игра окончена 😿 Попробуй снова завтра!"
+            text="Игра окончена 😿 Попробуй снова завтра!",
+            reply_markup=InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [InlineKeyboardButton(text="⬅️ Вернуться в меню", callback_data="menu")]
+                ]
+            )
         )
 
 
