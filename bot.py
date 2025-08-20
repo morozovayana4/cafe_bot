@@ -97,9 +97,9 @@ def cart_kb() -> InlineKeyboardMarkup:
 def format_price(price: tuple[int, int, int]) -> str:
     kisses, words, bites = price
     parts = []
-    if kisses: parts.append(f"{kisses} поцелуй(ев)")
-    if words: parts.append(f"{words} хороших(ее) слов(о)")
-    if bites: parts.append(f"{bites} укус(ов) дениса")
+    if kisses: parts.append(f"{kisses} 💋")
+    if words: parts.append(f"{words} 🗣❤️")
+    if bites: parts.append(f"{bites} 😼")
     return " + ".join(parts) if parts else "бесплатно"
 
 
@@ -141,6 +141,7 @@ def menu_kb() -> InlineKeyboardMarkup:
         InlineKeyboardButton(text="🛒 Корзина", callback_data="cart:open"),
     ])
     return InlineKeyboardMarkup(inline_keyboard=rows)
+
 
 # 3) Хэндлер «Удиви меня»
 @dp.callback_query(F.data == "random")
@@ -232,6 +233,178 @@ async def cart_checkout(c: CallbackQuery):
 @dp.message()
 async def any_text(m: Message):
     await send_unique(m.from_user.id, text="Жми кнопки, чтобы выбрать блюдо 👇", reply_markup=menu_kb())
+
+
+# ---- Викторина ----
+import datetime
+
+QUIZ_QUESTIONS = [
+    {
+        "q": "как зовут самую старую кошку яны",
+        "options": ["рыжуха", "мей ли", "лиу"],
+        "correct": "рыжуха"
+    },
+    {
+        "q": "Кто такой Денис?",
+        "options": ["кот", "Парень Яны", "Курьер еды"],
+        "correct": "Парень Яны"
+    },
+    {
+        "q": "что выберет яна ? ",
+        "options": ["дз по линалу", "дз по матану", "дз по дискре"],
+        "correct": "дз по дискре"
+    },
+    {
+        "q": "Как Яна относится к Денису?",
+        "options": ["С ненавистью 😡", "С любовью ❤️", "Как к соседу по комнате 🏠"],
+        "correct": "С любовью ❤️"
+    },
+    {
+        "q": "что выберет яна ? ",
+        "options": ["кетчуп", "майонез", "горчитца"],
+        "correct": "кетчуп"
+    }, {
+        "q": "что выберет яна ? ",
+        "options": ["масло для губ", "помада с глянцем", "блеск для губ"],
+        "correct": "помада с глянцем"
+    }, {
+        "q": "что выберет яна в макияже? ",
+        "options": ["акцент на глазах", "акцент на контуре лица", "акцент на губах"],
+        "correct": "акцент на губах"
+    }, {
+        "q": "что выберет яна ? ",
+        "options": ["без завтрака", "сладкий завтрак", "солёный завтрак"],
+        "correct": "солёный завтрак"
+    }, {
+        "q": "куда мечтает попасть яна (после очка дениса) ? ",
+        "options": ["Китай", "ОАЭ", "Индия"],
+        "correct": "Китай"
+    }, {
+        "q": "куда мечтает попасть яна (после очка дениса) ? ",
+        "options": ["Италия", "Монголия", "Бразилия"],
+        "correct": "Бразилия"
+    }, {
+        "q": "любимая песня яны у 2rbina 2rista ",
+        "options": ["Наркотетстер", "Барон суббота", "кальян у каннибала"],
+        "correct": "Наркотетстер"
+    }, {
+        "q": "со сколки лет яна слушает 2rbina 2rista?",
+        "options": ["14", "12", "11"],
+        "correct": "12"
+    },
+    {
+        "q": "янино любимое упражнени нв трицепс",
+        "options": ["лёжа с гирями ", "в кроссовере с канатом", "в уклоне вниз головой с 2мя гирями"],
+        "correct": "в уклоне вниз головой с 2мя гирями"
+    },
+    {
+        "q": "янино любимое упражнени нв задние дельты",
+        "options": ["фу блять! ", "в кроссовере с наклоном назат", "с гирями стоя"],
+        "correct": "с гирями стоя"
+    }, {
+        "q": "каким был первый маник яны? ",
+        "options": ["красный френч с полосками", "тёмно зелёный с серемренными полосками",
+                    "с голубыми пятнами и нескольоими фул голубыми"],
+        "correct": "с голубыми пятнами и нескольоими фул голубыми"
+    }, {
+        "q": "во сколько лет яна сделала свой первый маник с покрытием (как она сейчас носит)? ",
+        "options": ["14", "15", "16"],
+        "correct": "15"
+    }
+]
+
+user_quiz_state = {}  # user_id -> {index, correct_count, date}
+quiz_results_today = {}  # user_id -> date
+
+
+def quiz_kb(options, q_index):
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text=o, callback_data=f"quiz:{q_index}:{o}")]
+        for o in options
+    ])
+
+
+@dp.callback_query(F.data == "quiz:start")
+async def quiz_start(c: CallbackQuery):
+    today = datetime.date.today()
+    if quiz_results_today.get(c.from_user.id) == today:
+        return await c.answer("Викторина доступна раз в день!", show_alert=True)
+    user_quiz_state[c.from_user.id] = {"index": 0, "correct": 0}
+    q = QUIZ_QUESTIONS[0]
+    await send_unique(
+        c.from_user.id,
+        text=f"❓ {q['q']}",
+        reply_markup=quiz_kb(q["options"], 0)
+    )
+    await c.answer()
+
+
+@dp.callback_query(F.data.startswith("quiz:"))
+async def quiz_answer(c: CallbackQuery):
+    user_id = c.from_user.id
+    parts = c.data.split(":")
+    q_index, choice = int(parts[1]), parts[2]
+    state = user_quiz_state.get(user_id)
+    if not state or state["index"] != q_index:
+        return await c.answer("Старый вопрос", show_alert=True)
+
+    q = QUIZ_QUESTIONS[q_index]
+    if choice == q["correct"]:
+        state["correct"] += 1
+        await c.answer("✅ Верно!")
+        # следующий вопрос
+        state["index"] += 1
+        if state["index"] < len(QUIZ_QUESTIONS):
+            next_q = QUIZ_QUESTIONS[state["index"]]
+            await send_unique(
+                user_id,
+                text=f"❓ {next_q['q']}",
+                reply_markup=quiz_kb(next_q["options"], state["index"])
+            )
+        else:
+            today = datetime.date.today()
+            quiz_results_today[user_id] = today
+            del user_quiz_state[user_id]
+            await send_unique(
+                user_id,
+                text="🎉 Поздравляю! Все ответы правильные!"
+            )
+    else:
+        # если ошибка → конец игры
+        await c.answer("❌ Неверно!", show_alert=True)
+
+        # отправляем создателю сообщение с инфой
+        if DEV_CHAT_ID:
+            await bot.send_message(
+                DEV_CHAT_ID,
+                f"🚨 Пользователь @{c.from_user.username or '—'} ({c.from_user.full_name}, id={user_id}) "
+                f"ошибся в викторине.\n\n"
+                f"Вопрос: {q['q']}\n"
+                f"Выбран ответ: {choice}\n"
+                f"Правильный ответ: {q['correct']}"
+            )
+
+        # фиксируем, что на сегодня он играл
+        quiz_results_today[user_id] = datetime.date.today()
+        if user_id in user_quiz_state:
+            del user_quiz_state[user_id]
+
+        # сообщение пользователю
+        await send_unique(
+            user_id,
+            text="Игра окончена 😿 Попробуй снова завтра!"
+        )
+
+
+# Добавляем кнопку "🎲 Викторина" в меню
+def menu_kb() -> InlineKeyboardMarkup:
+    rows = [[InlineKeyboardButton(text=it.title, callback_data=f"show:{it.id}")] for it in CATALOG]
+    rows.append([
+        InlineKeyboardButton(text=" Удиви меня", callback_data="random"),
+        InlineKeyboardButton(text="🎲 Викторина", callback_data="quiz:start"),
+        InlineKeyboardButton(text="🛒 Корзина", callback_data="cart:open"),
+    ])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 # --- крошечный HTTP-сервер для Render (health check) ---
