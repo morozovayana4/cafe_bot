@@ -55,7 +55,8 @@ CATALOG: list[Item] = [
          "https://www.google.com/imgres?q=%D1%80%D0%B8%D1%81&imgurl=https%3A%2F%2Fs1.eda.ru%2FStaticContent%2FPhotos%2FUpscaled%2F120214140918%2F130320124922%2Fp_O.jpg&imgrefurl=https%3A%2F%2Feda.ru%2Frecepty%2Fzakuski%2Fris-na-paru-26944&docid=cWWaVvXbO0wkpM&tbnid=fsT4H1ECgfxXJM&vet=12ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA..i&w=1200&h=1200&hcb=2&ved=2ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA"),
     Item("macarons", "макароны", (3, 1, 2), "10 минут",
          "https://www.google.com/imgres?q=vfrfhjys%20&imgurl=https%3A%2F%2Fkachestvorb.ru%2Fupload%2Fiblock%2F770%2Fb67ynl991s6afy8wsq7hv7ug0an3xns2.webp&imgrefurl=https%3A%2F%2Fkachestvorb.ru%2Fnews%2Fpolezny_li_makarony%2F&docid=kaR6_sx-W599uM&tbnid=71FW0bzcMqo29M&vet=12ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA..i&w=480&h=267&hcb=2&ved=2ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA"),
-    Item("big bon", "big bon", (1, 0, 1), "5 минут","https://www.google.com/imgres?q=%D0%B1%D0%B8%D0%B3%20%D0%B1%D0%BE%D0%BD&imgurl=https%3A%2F%2Fdobrodusha.ru%2Fimage%2Fcache%2Fcatalog%2Flapsha%2FLapsha-bystrogo-prigotovleniya-Big-Bon-75-g-kurica-salsa-800x800.jpg&imgrefurl=https%3A%2F%2Fdobrodusha.ru%2Fprodukty-pitaniya%2Fprodukty-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya-big-bon-75-g-kurica-salsa%3Fsrsltid%3DAfmBOorvJlgttx-5oMWXJJcKJkLWFF5ujSiD0CulCyqbSExLyVm_CYJr&docid=LZIH-gEuUBx6WM&tbnid=cauN7GtzjCgaHM&vet=12ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA")
+    Item("big bon", "big bon", (1, 0, 1), "5 минут",
+         "https://www.google.com/imgres?q=%D0%B1%D0%B8%D0%B3%20%D0%B1%D0%BE%D0%BD&imgurl=https%3A%2F%2Fdobrodusha.ru%2Fimage%2Fcache%2Fcatalog%2Flapsha%2FLapsha-bystrogo-prigotovleniya-Big-Bon-75-g-kurica-salsa-800x800.jpg&imgrefurl=https%3A%2F%2Fdobrodusha.ru%2Fprodukty-pitaniya%2Fprodukty-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya-big-bon-75-g-kurica-salsa%3Fsrsltid%3DAfmBOorvJlgttx-5oMWXJJcKJkLWFF5ujSiD0CulCyqbSExLyVm_CYJr&docid=LZIH-gEuUBx6WM&tbnid=cauN7GtzjCgaHM&vet=12ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA")
 ]
 
 ITEM_BY_ID = {i.id: i for i in CATALOG}
@@ -66,14 +67,6 @@ last_message: dict[int, int] = {}  # user_id -> message_id
 
 
 # ---- Кнопки ----
-def menu_kb() -> InlineKeyboardMarkup:
-    rows = []
-    for it in CATALOG:
-        rows.append([InlineKeyboardButton(text=it.title, callback_data=f"show:{it.id}")])
-    rows.append([InlineKeyboardButton(text="🛒 Корзина", callback_data="cart:open")])
-    return InlineKeyboardMarkup(inline_keyboard=rows)
-
-
 def item_kb(item_id: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="➕ Добавить", callback_data=f"add:{item_id}")],
@@ -131,14 +124,6 @@ async def send_unique(user_id: int, text: str = None, photo: str = None, caption
         msg = await bot.send_message(user_id, text, reply_markup=reply_markup)
     last_message[user_id] = msg.message_id
 
-
-def menu_kb() -> InlineKeyboardMarkup:
-    rows = [[InlineKeyboardButton(text=it.title, callback_data=f"show:{it.id}")] for it in CATALOG]
-    rows.append([
-        InlineKeyboardButton(text=" Удиви меня", callback_data="random"),
-        InlineKeyboardButton(text="🛒 Корзина", callback_data="cart:open"),
-    ])
-    return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 # 3) Хэндлер «Удиви меня»
@@ -310,7 +295,7 @@ QUIZ_QUESTIONS = [
         "correct": "15"
     }
 ]
-
+QUIZ_COUNT = 5
 user_quiz_state = {}  # user_id -> {index, correct_count, date}
 quiz_results_today = {}  # user_id -> date
 
@@ -327,8 +312,11 @@ async def quiz_start(c: CallbackQuery):
     today = datetime.date.today()
     if quiz_results_today.get(c.from_user.id) == today:
         return await c.answer("Викторина доступна раз в день!", show_alert=True)
-    user_quiz_state[c.from_user.id] = {"index": 0, "correct": 0}
-    q = QUIZ_QUESTIONS[0]
+    # Случайно выбираем 5 вопросов
+    qs = random.sample(QUIZ_QUESTIONS, QUIZ_COUNT)
+
+    user_quiz_state[c.from_user.id] = {"index": 0, "correct": 0, "qs": qs}
+    q = qs[0]
     await send_unique(
         c.from_user.id,
         text=f"❓ {q['q']}",
@@ -342,30 +330,40 @@ async def quiz_answer(c: CallbackQuery):
     user_id = c.from_user.id
     parts = c.data.split(":")
     q_index, choice = int(parts[1]), parts[2]
-    state = user_quiz_state.get(user_id)
-    if not state or state["index"] != q_index:
+
+    st = user_quiz_state.get(user_id)
+    if not st or st["index"] != q_index:
         return await c.answer("Старый вопрос", show_alert=True)
 
-    q = QUIZ_QUESTIONS[q_index]
+    qs = st["qs"]
+    q = qs[q_index]
+
     if choice == q["correct"]:
-        state["correct"] += 1
+        st["correct"] += 1
         await c.answer("✅ Верно!")
-        # следующий вопрос
-        state["index"] += 1
-        if state["index"] < len(QUIZ_QUESTIONS):
-            next_q = QUIZ_QUESTIONS[state["index"]]
+
+        # Переходим к следующему вопросу
+        st["index"] += 1
+        if st["index"] < len(qs):
+            next_q = qs[st["index"]]
             await send_unique(
                 user_id,
                 text=f"❓ {next_q['q']}",
-                reply_markup=quiz_kb(next_q["options"], state["index"])
+                reply_markup=quiz_kb(next_q["options"], st["index"])
             )
         else:
-            today = datetime.date.today()
-            quiz_results_today[user_id] = today
+            # Все 5 верны — успех
+            quiz_results_today[user_id] = datetime.date.today()
             del user_quiz_state[user_id]
+            reward = random.choice(["💋", "🗣❤️", "😼"])
             await send_unique(
                 user_id,
-                text="🎉 Поздравляю! Все ответы правильные!"
+                text=f"🎉 Поздравляю! Все 5/5 правильные.\nТвоя скидка: −2 {reward}",
+                reply_markup=InlineKeyboardMarkup(
+                    inline_keyboard=[
+                        [InlineKeyboardButton(text="⬅️ Вернуться в меню", callback_data="menu")]
+                    ]
+                )
             )
     else:
         # если ошибка → конец игры
