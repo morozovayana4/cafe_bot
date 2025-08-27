@@ -66,7 +66,7 @@ CATALOG: list[Item] = [
 
 # ---- Десерты ----
 DESSERTS: list[Item] = [
-    Item("tiramisu", "Тирамису", (4, 2, 0), "40 минут",
+    Item("tiramisu", "Тирамису", (4, 2, 3), "40 минут",
          "https://www.google.com/imgres?q=%D0%A2%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D1%81%D1%83&imgurl=https%3A%2F%2Fart-lunch.ru%2Fwp-content%2Fuploads%2F2014%2F10%2FTiramisu_01.jpg&imgrefurl=https%3A%2F%2Fart-lunch.ru%2Frecipe%2Ftiramisu_foto%2F&docid=HwRIwO9aYXLY7M&tbnid=MHARzBTMyQP9cM&vet=12ahUKEwjizL_H56qPAxWKHRAIHZixDcoQM3oECBsQAA..i&w=1024&h=640&hcb=2&ved=2ahUKEwjizL_H56qPAxWKHRAIHZixDcoQM3oECBsQAA"),
     Item("cookies", "Печенье с чизкейком", (2, 3, 3), "60 минут",
          "https://www.google.com/imgres?q=%D0%9F%D0%B5%D1%87%D0%B5%D0%BD%D1%8C%D0%B5%20%D1%81%20%D1%87%D0%B8%D0%B7%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%BC&imgurl=https%3A%2F%2Fmedia.ovkuse.ru%2Fimages%2Frecipes%2F8a7bc04e-5054-4519-b521-9bb44f81e79d%2F8a7bc04e-5054-4519-b521-9bb44f81e79d_420_420.webp&imgrefurl=https%3A%2F%2Fovkuse.ru%2Frecipes%2F70950879&docid=2f_5bqE1t5E3NM&tbnid=L6TRBMOSUdxt7M&vet=12ahUKEwi_rbHS56qPAxVsFRAIHXh5JbEQM3oECBcQAA..i&w=420&h=420&hcb=2&ved=2ahUKEwi_rbHS56qPAxVsFRAIHXh5JbEQM3oECBcQAA"),
