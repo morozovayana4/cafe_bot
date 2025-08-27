@@ -49,17 +49,51 @@ CATALOG: list[Item] = [
          "https://www.google.com/imgres?q=%D0%BB%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C%D1%8F&imgurl=https%3A%2F%2Fswlife.ru%2Fimage%2Fcache%2Fcatalog%2Frecipe%2F63%2F00%2F6300efa9fa984bf41f87787934cb2bcd-0x0.webp&imgrefurl=https%3A%2F%2Fswlife.ru%2Frecipes%2Flazanya&docid=KyQAt_4ZGnDO-M&tbnid=mq-GE2t7PIxKSM&vet=12ahUKEwiqvIvFoJKPAxXrQlUIHYHuOpgQM3oECBYQAA..i&w=640&h=480&hcb=2&ved=2ahUKEwiqvIvFoJKPAxXrQlUIHYHuOpgQM3oECBYQAA"),
     Item("cannelloni", "канилони", (8, 2, 6), "60 минут",
          "https://www.google.com/imgres?q=%D0%BA%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%BD%D0%B8&imgurl=https%3A%2F%2Fwww.patee.ru%2Fr%2Fx6%2F16%2Fd9%2F60%2F960m.jpg&imgrefurl=https%3A%2F%2Fwww.patee.ru%2Frecipes%2Fpasta%2Fview%2F%3Fid%3D1497439&docid=t60jEgcxJzu1tM&tbnid=3jEfavocLPkWvM&vet=12ahUKEwif0LPBoZKPAxX4JxAIHU5qGv8QM3oECCoQAA..i&w=960&h=640&hcb=2&ved=2ahUKEwif0LPBoZKPAxX4JxAIHU5qGv8QM3oECCoQAA"),
-    Item("vegetables", "нарезанне овощи", (2, 0, 2), "5 минут",
+    Item("vegetables", "нарезанные овощи", (2, 0, 2), "5 минут",
          "https://www.google.com/imgres?q=%D0%BD%D0%B0%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%BD%D0%B5%20%D0%BE%D0%B2%D0%BE%D1%89%D0%B8&imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0y5NuEamCew%2Fhq720.jpg%3Fsqp%3D-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD%26rs%3DAOn4CLBe7KOZjZRMnyLPso1TuyPq5b3H7g&imgrefurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0y5NuEamCew&docid=P6Q5XvSOhz10SM&tbnid=P31evbpWh95dSM&vet=12ahUKEwj2qtXcoZKPAxXBKBAIHUCtAqEQM3oECBwQAA..i&w=686&h=386&hcb=2&ved=2ahUKEwj2qtXcoZKPAxXBKBAIHUCtAqEQM3oECBwQAA"),
     Item("rise", "рис (нужна помощь)", (3, 1, 2), "30 минут",
          "https://www.google.com/imgres?q=%D1%80%D0%B8%D1%81&imgurl=https%3A%2F%2Fs1.eda.ru%2FStaticContent%2FPhotos%2FUpscaled%2F120214140918%2F130320124922%2Fp_O.jpg&imgrefurl=https%3A%2F%2Feda.ru%2Frecepty%2Fzakuski%2Fris-na-paru-26944&docid=cWWaVvXbO0wkpM&tbnid=fsT4H1ECgfxXJM&vet=12ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA..i&w=1200&h=1200&hcb=2&ved=2ahUKEwjmt9XBoJqPAxV6UVUIHXMiE1IQM3oECB0QAA"),
     Item("macarons", "макароны", (3, 1, 2), "10 минут",
          "https://www.google.com/imgres?q=vfrfhjys%20&imgurl=https%3A%2F%2Fkachestvorb.ru%2Fupload%2Fiblock%2F770%2Fb67ynl991s6afy8wsq7hv7ug0an3xns2.webp&imgrefurl=https%3A%2F%2Fkachestvorb.ru%2Fnews%2Fpolezny_li_makarony%2F&docid=kaR6_sx-W599uM&tbnid=71FW0bzcMqo29M&vet=12ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA..i&w=480&h=267&hcb=2&ved=2ahUKEwiYlerooJqPAxXZCRAIHVmYLeQQM3oECCIQAA"),
     Item("big bon", "big bon", (1, 0, 1), "5 минут",
-         "https://www.google.com/imgres?q=%D0%B1%D0%B8%D0%B3%20%D0%B1%D0%BE%D0%BD&imgurl=https%3A%2F%2Fdobrodusha.ru%2Fimage%2Fcache%2Fcatalog%2Flapsha%2FLapsha-bystrogo-prigotovleniya-Big-Bon-75-g-kurica-salsa-800x800.jpg&imgrefurl=https%3A%2F%2Fdobrodusha.ru%2Fprodukty-pitaniya%2Fprodukty-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya-big-bon-75-g-kurica-salsa%3Fsrsltid%3DAfmBOorvJlgttx-5oMWXJJcKJkLWFF5ujSiD0CulCyqbSExLyVm_CYJr&docid=LZIH-gEuUBx6WM&tbnid=cauN7GtzjCgaHM&vet=12ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA")
+         "https://www.google.com/imgres?q=%D0%B1%D0%B8%D0%B3%20%D0%B1%D0%BE%D0%BD&imgurl=https%3A%2F%2Fdobrodusha.ru%2Fimage%2Fcache%2Fcatalog%2Flapsha%2FLapsha-bystrogo-prigotovleniya-Big-Bon-75-g-kurica-salsa-800x800.jpg&imgrefurl=https%3A%2F%2Fdobrodusha.ru%2Fprodukty-pitaniya%2Fprodukty-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya%2Flapsha-bystrogo-prigotovleniya-big-bon-75-g-kurica-salsa%3Fsrsltid%3DAfmBOorvJlgttx-5oMWXJJcKJkLWFF5ujSiD0CulCyqbSExLyVm_CYJr&docid=LZIH-gEuUBx6WM&tbnid=cauN7GtzjCgaHM&vet=12ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwiRuoKLv5qPAxUV2SoKHb2bCc4QM3oECBkQAA"),
+    Item("что-то своё из основного",
+         "что-то своё из основного (цена определяется по яниному усмотрению, ссылка на рецепт в лс)", (10, 10, 10),
+         "? минут",
+         "https://www.google.com/imgres?q=%D0%B4%D1%83%D0%BC%D0%B0%D0%B5%D1%82%20&imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-photo%2Fserious-man-thinking_1149-1328.jpg%3Fsemt%3Dais_hybrid%26w%3D740%26q%3D80&imgrefurl=https%3A%2F%2Fru.freepik.com%2Ffree-photos-vectors%2F%25D1%2587%25D0%25B5%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25B5%25D0%25BA-%25D0%25B4%25D1%2583%25D0%25BC%25D0%25B0%25D0%25B5%25D1%2582-png&docid=kfkUEX-M6KsTzM&tbnid=-DQYxe7LDdYC7M&vet=12ahUKEwi9roXj6KqPAxV9HRAIHcRSIe8QM3oECBIQAA..i&w=740&h=746&hcb=2&ved=2ahUKEwi9roXj6KqPAxV9HRAIHcRSIe8QM3oECBIQAA")
+
 ]
 
+# ---- Десерты ----
+DESSERTS: list[Item] = [
+    Item("tiramisu", "Тирамису", (4, 2, 0), "40 минут",
+         "https://www.google.com/imgres?q=%D0%A2%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D1%81%D1%83&imgurl=https%3A%2F%2Fart-lunch.ru%2Fwp-content%2Fuploads%2F2014%2F10%2FTiramisu_01.jpg&imgrefurl=https%3A%2F%2Fart-lunch.ru%2Frecipe%2Ftiramisu_foto%2F&docid=HwRIwO9aYXLY7M&tbnid=MHARzBTMyQP9cM&vet=12ahUKEwjizL_H56qPAxWKHRAIHZixDcoQM3oECBsQAA..i&w=1024&h=640&hcb=2&ved=2ahUKEwjizL_H56qPAxWKHRAIHZixDcoQM3oECBsQAA"),
+    Item("cookies", "Печенье с чизкейком", (2, 3, 3), "60 минут",
+         "https://www.google.com/imgres?q=%D0%9F%D0%B5%D1%87%D0%B5%D0%BD%D1%8C%D0%B5%20%D1%81%20%D1%87%D0%B8%D0%B7%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%BC&imgurl=https%3A%2F%2Fmedia.ovkuse.ru%2Fimages%2Frecipes%2F8a7bc04e-5054-4519-b521-9bb44f81e79d%2F8a7bc04e-5054-4519-b521-9bb44f81e79d_420_420.webp&imgrefurl=https%3A%2F%2Fovkuse.ru%2Frecipes%2F70950879&docid=2f_5bqE1t5E3NM&tbnid=L6TRBMOSUdxt7M&vet=12ahUKEwi_rbHS56qPAxVsFRAIHXh5JbEQM3oECBcQAA..i&w=420&h=420&hcb=2&ved=2ahUKEwi_rbHS56qPAxVsFRAIHXh5JbEQM3oECBcQAA"),
+    Item("cheesecake", "Чизкейк", (6, 3, 5), "1 час +2 часа в печи + 5-8 часов в холодосе",
+         "https://www.google.com/imgres?q=%D0%A7%D0%B8%D0%B7%D0%BA%D0%B5%D0%B9%D0%BA&imgurl=https%3A%2F%2Fart-lunch.ru%2Fcontent%2Fuploads%2F2014%2F08%2Fcheesecake-new-york-001x2-1.jpg&imgrefurl=https%3A%2F%2Fart-lunch.ru%2Frecipe%2Fcheesecake_new_york_foto%2F&docid=Vwh9KiEA0zbZFM&tbnid=6W9n1u6ovDndKM&vet=12ahUKEwilpr3c56qPAxVxHRAIHXZwIJAQM3oECBYQAA..i&w=1024&h=640&hcb=2&ved=2ahUKEwilpr3c56qPAxVxHRAIHXZwIJAQM3oECBYQAA"),
+    Item("brownie", "синабоны", (5, 4, 2), "120 минут",
+         "https://www.google.com/imgres?q=%D1%81%D0%B8%D0%BD%D0%B0%D0%B1%D0%BE%D0%BD%D1%8B&imgurl=https%3A%2F%2Fmysecretrecipes.ru%2Fwp-content%2Fuploads%2F2019%2F11%2FCinnabon2.png&imgrefurl=https%3A%2F%2Fmysecretrecipes.ru%2Fcinnabon%2F&docid=Lrwj3qO4t9UYDM&tbnid=Egezq5bIXdBrtM&vet=12ahUKEwjA48Ll56qPAxV3HRAIHUPMFeAQM3oECBcQAA..i&w=601&h=402&hcb=2&ved=2ahUKEwjA48Ll56qPAxV3HRAIHUPMFeAQM3oECBcQAA"),
+    Item("icecream", "Мороженое", (2, 1, 0), "5 минут",
+         "https://www.google.com/imgres?q=%D0%9C%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BE%D0%B5&imgurl=https%3A%2F%2Ficecream-chl.ru%2Fupload%2Fresize_cache%2Fiblock%2F531%2F297_297_1619711fa078991f0a23d032687646b21%2Fskmuzlsvepfmph9tv9lucb4fmyn9kn0n.png&imgrefurl=https%3A%2F%2Ficecream-chl.ru%2Fcatalog%2Fmorozhenoe%2F&docid=aHtBlfxlXCCIqM&tbnid=Mz6jzmWyYKKU4M&vet=12ahUKEwjdkbHu56qPAxXWSFUIHUG4PAcQM3oECBUQAA..i&w=296&h=297&hcb=2&ved=2ahUKEwjdkbHu56qPAxXWSFUIHUG4PAcQM3oECBUQAA"),
+    Item("Фруктовый салат", "Фруктовый салат", (2, 1, 3), "8 минут",
+         "https://www.google.com/imgres?q=%D0%A4%D1%80%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B0%D0%BB%D0%B0%D1%82&imgurl=https%3A%2F%2Fimages.gastronom.ru%2Fxx8vnPTumPBABpaMkQIQrO_75nZ0fxSuDQcvJj3gGdE%2Fpr%3Aarticle-cover-image%2Fg%3Ace%2Frs%3Aauto%3A0%3A0%3A0%2FL2Ntcy9hbGwtaW1hZ2VzLzVmYWM5ZmZlLTJmZjEtNDJlOS05NDc2LTE4OWFhYjNkNmZmNy5qcGc.webp&imgrefurl=https%3A%2F%2Fwww.gastronom.ru%2Ftext%2F20-receptov-vkusnogo-fruktovogo-salata-1025980&docid=h_RTtJkru1j3MM&tbnid=3BoBudFr1xTa3M&vet=12ahUKEwi5_5b556qPAxX1PhAIHSvODMgQM3oECBcQAA..i&w=1200&h=660&hcb=2&ved=2ahUKEwi5_5b556qPAxX1PhAIHSvODMgQM3oECBcQAA"),
+    Item("Шарлотка ", " Шарлотка", (4, 2, 2), "40 минут",
+         "https://www.google.com/imgres?q=%D0%A8%D0%B0%D1%80%D0%BB%D0%BE%D1%82%D0%BA%D0%B0&imgurl=https%3A%2F%2Fimages.gastronom.ru%2FlsVsITDtmi_BM1ee8t9gh2KOM3CVQonfAwXN14UUMPw%2Fpr%3Arecipe-cover-image%2Fg%3Ace%2Frs%3Aauto%3A0%3A0%3A0%2FL2Ntcy9hbGwtaW1hZ2VzLzIyY2IwNmM3LTc3MmUtNGMzMy1hYzE1LWViNjllYzUyYmFhMS5qcGc.webp&imgrefurl=https%3A%2F%2Fwww.gastronom.ru%2Frecipe%2F24208%2Fklassicheskaja-sharlotka-s-jablokami&docid=hC3hAKZErTRvXM&tbnid=hW71fkzd5PzZMM&vet=12ahUKEwiy8faE6KqPAxVYIxAIHfQ2HysQM3oECBYQAA..i&w=870&h=480&hcb=2&ved=2ahUKEwiy8faE6KqPAxVYIxAIHfQ2HysQM3oECBYQAA"),
+    Item("слойки с начинкой", "слойки с начинкой", (1, 3, 5), "30 минут",
+         "https://www.google.com/imgres?q=%D1%81%D0%BB%D0%BE%D0%B9%D0%BA%D0%B8%20%D1%81%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%BA%D0%BE%D0%B9&imgurl=https%3A%2F%2Fimg1.russianfood.com%2Fdycontent%2Fimages_upl%2F311%2Fbig_310030.jpg&imgrefurl=https%3A%2F%2Fwww.russianfood.com%2Frecipes%2Fbytype%2F%3Ffid%3D609&docid=i3PuF1Y4Q61x8M&tbnid=I7W5AAg7BviVdM&vet=12ahUKEwjb79uM6KqPAxVuJxAIHWdbDhoQM3oECB8QAA..i&w=673&h=449&hcb=2&ved=2ahUKEwjb79uM6KqPAxVuJxAIHWdbDhoQM3oECB8QAA"),
+    Item("что-то своё из десертов",
+         "что-то своё из десертов (цена определяется по яниному усмотрению, ссылка на рецепт в лс)", (10, 10, 10),
+         "? минут",
+         "https://www.google.com/imgres?q=%D0%B4%D1%83%D0%BC%D0%B0%D0%B5%D1%82%20&imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-photo%2Fserious-man-thinking_1149-1328.jpg%3Fsemt%3Dais_hybrid%26w%3D740%26q%3D80&imgrefurl=https%3A%2F%2Fru.freepik.com%2Ffree-photos-vectors%2F%25D1%2587%25D0%25B5%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25B5%25D0%25BA-%25D0%25B4%25D1%2583%25D0%25BC%25D0%25B0%25D0%25B5%25D1%2582-png&docid=kfkUEX-M6KsTzM&tbnid=-DQYxe7LDdYC7M&vet=12ahUKEwi9roXj6KqPAxV9HRAIHcRSIe8QM3oECBIQAA..i&w=740&h=746&hcb=2&ved=2ahUKEwi9roXj6KqPAxV9HRAIHcRSIe8QM3oECBIQAA")
+]
+
+DESSERT_BY_ID = {i.id: i for i in DESSERTS}
+
 ITEM_BY_ID = {i.id: i for i in CATALOG}
+
+# Объединяем все позиции (и блюда, и десерты)
+ALL_ITEMS = {i.id: i for i in CATALOG + DESSERTS}
 
 # ---- Корзины и последние сообщения ----
 carts: dict[int, dict[str, int]] = defaultdict(lambda: defaultdict(int))
@@ -84,6 +118,18 @@ def cart_kb() -> InlineKeyboardMarkup:
     ])
 
 
+def dessert_menu_kb() -> InlineKeyboardMarkup:
+    rows = [[InlineKeyboardButton(text=it.title, callback_data=f"show:{it.id}")] for it in DESSERTS]
+    rows.append([InlineKeyboardButton(text="⬅️ Вернуться в меню", callback_data="menu")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+@dp.callback_query(F.data == "desserts")
+async def on_desserts(c: CallbackQuery):
+    await send_unique(c.from_user.id, text="Выбирай десерт:", reply_markup=dessert_menu_kb())
+    await c.answer()
+
+
 # ---- Утилиты ----
 def format_price(price: tuple[int, int, int]) -> str:
     kisses, words, bites = price
@@ -101,7 +147,7 @@ def cart_summary(user_id: int) -> tuple[str, tuple[int, int, int]]:
     lines = ["<b>Корзина:</b>"]
     total = [0, 0, 0]
     for item_id, qty in cart.items():
-        it = ITEM_BY_ID[item_id]
+        it = ALL_ITEMS[item_id]
         cost = tuple(p * qty for p in it.price)
         total = [a + b for a, b in zip(total, cost)]
         lines.append(f"• {it.title} × {qty} — {format_price(cost)}")
@@ -123,7 +169,6 @@ async def send_unique(user_id: int, text: str = None, photo: str = None, caption
     else:
         msg = await bot.send_message(user_id, text, reply_markup=reply_markup)
     last_message[user_id] = msg.message_id
-
 
 
 # 3) Хэндлер «Удиви меня»
@@ -159,7 +204,7 @@ async def on_menu(c: CallbackQuery):
 @dp.callback_query(F.data.startswith("show:"))
 async def on_show(c: CallbackQuery):
     item_id = c.data.split(":", 1)[1]
-    item = ITEM_BY_ID[item_id]
+    item = ALL_ITEMS[item_id]
     caption = (f"<b>{item.title}</b>\n"
                f"Время готовки: {item.cook_time}\n"
                f"Цена: {format_price(item.price)}")
@@ -170,7 +215,7 @@ async def on_show(c: CallbackQuery):
 @dp.callback_query(F.data.startswith("add:"))
 async def on_add(c: CallbackQuery):
     item_id = c.data.split(":", 1)[1]
-    item = ITEM_BY_ID.get(item_id)
+    item = ALL_ITEMS.get(item_id)
     if not item:
         return await c.answer("Не найдено", show_alert=True)
     carts[c.from_user.id][item_id] += 1
@@ -218,12 +263,12 @@ async def any_text(m: Message):
     await send_unique(m.from_user.id, text="Жми кнопки, чтобы выбрать блюдо 👇", reply_markup=menu_kb())
 
 
-
 # Добавляем кнопку
 def menu_kb() -> InlineKeyboardMarkup:
     rows = [[InlineKeyboardButton(text=it.title, callback_data=f"show:{it.id}")] for it in CATALOG]
     rows.append([
         InlineKeyboardButton(text=" Удиви меня", callback_data="random"),
+        InlineKeyboardButton(text=" Десерты", callback_data="desserts"),
         InlineKeyboardButton(text="🛒 Корзина", callback_data="cart:open"),
     ])
     return InlineKeyboardMarkup(inline_keyboard=rows)
